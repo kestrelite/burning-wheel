@@ -11,12 +11,19 @@ function fileparser.get_classes(lineText)
 
 		if stringtools.starts(line,"C") then
 			assert(inClass == false, "C before EC in file on line " .. lineID);
+			assert(#workingTable == 1, "Class field outside class on line " .. lineID);
 			inClass = true;
 		end
 
 		if stringtools.starts(line, "EC") then
 			assert(inClass == true, "EC before C in file on line " .. lineID);
 			inClass = false;
+			if #workingTable > 0 then classTable[#classTable + 1] = workingTable; end
+			workingTable = {};
+		end
+
+		if stringtools.starts(line, "NSP") then
+			assert(inClass == false, "Can't change namespaces inside class on line " .. lineID);
 			if #workingTable > 0 then classTable[#classTable + 1] = workingTable; end
 			workingTable = {};
 		end
