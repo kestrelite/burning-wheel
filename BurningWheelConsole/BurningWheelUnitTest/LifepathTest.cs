@@ -24,8 +24,13 @@ namespace BurningWheelUnitTest
             Lifepath lpC = new Lifepath();
             lpC.Setting = "Overpass";
 
+            //The only thing it shouldn't lead to is itself
+            Lifepath lpD = new Lifepath();
+            lpD.Setting = "Village";
+
             Assert.IsTrue(lpA.LeadsTo(lpB));
-            Assert.IsFalse(lpA.LeadsTo(lpC));
+            Assert.IsTrue(lpA.LeadsTo(lpC));
+            Assert.IsFalse(lpA.LeadsTo(lpD));
         }
 
         [TestMethod]
