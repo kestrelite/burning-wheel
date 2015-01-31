@@ -1,0 +1,1 @@
+[{"Name":"TestTrait","Restrictions":null,"LPOnlyTrait":false,"Points":3,"TraitType":1}]

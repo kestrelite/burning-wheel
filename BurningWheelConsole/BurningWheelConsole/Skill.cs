@@ -8,6 +8,19 @@ namespace BurningWheelConsole
 {
     public class Skill
     {
+        private static List<Skill> _SKILL_AGGREGATE;
+        public static List<Skill> SKILL_AGGREGATE
+        {
+            set
+            {
+                if (SKILL_AGGREGATE_SET) throw new InvalidOperationException("Can't set skill aggregate twice!");
+                SKILL_AGGREGATE_SET = true;
+                Skill._SKILL_AGGREGATE = value;
+            }
+            get { return Skill._SKILL_AGGREGATE; }
+        }
+        private static bool SKILL_AGGREGATE_SET = false;
+
         public string Name { set; get; }
         public string Restrictions { set; get; }
         public string SkillType { set; get; }

@@ -54,6 +54,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DataReadTest.cs" />
+    <Compile Include="DuplicateDataReadTest.cs" />
     <Compile Include="LifepathTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using BurningWheelConsole.Properties;
 
 namespace BurningWheelConsole
 {
@@ -12,16 +13,24 @@ namespace BurningWheelConsole
     {
         static void Main(string[] args)
         {
-            Lifepath l = new Lifepath();
-            l.Name = "Test";
-            l.Leads = new List<string>();
-            l.Leads.Add("Outcast");
+            Skill s = new Skill();
+            s.BaseStat1 = RootStat.PERC;
+            s.BaseStat2 = RootStat.NONE;
+            s.Name = "TestSkill";
+            s.Obstacles = new List<string>();
+            s.ToolsNeeded = true;
 
-            Console.WriteLine(JsonConvert.SerializeObject(l));
+            List<Skill> list = new List<Skill>();
+            list.Add(s);
+
+            Console.WriteLine(JsonConvert.SerializeObject(list));
             Console.ReadKey();
 
             Lifepath l2 = JsonConvert.DeserializeObject<Lifepath>("{\"Name\":\"Test\"}");
             Console.WriteLine(l2.Name);
+
+            Console.WriteLine(Resources.LifepathsJSON);
+            Console.ReadKey();
         }
     }
 }

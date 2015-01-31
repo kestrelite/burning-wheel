@@ -29,13 +29,13 @@ namespace BurningWheelUnitTest
         }
 
         [TestMethod]
-        public void DeserializationTest()
+        public void SerializeDeserializeTest()
         {
             Lifepath testLP = new Lifepath();
             testLP.Leads = new List<string>();
             testLP.Leads.Add("Outcast");
             testLP.Name = "Born Peasant";
-            testLP.MentalPhysical = MPPoint.PosMorP;
+            testLP.MentalPhysical = MPPoint.POS_MorP;
             testLP.Years = 8;
 
             string JSON = JsonConvert.SerializeObject(testLP);

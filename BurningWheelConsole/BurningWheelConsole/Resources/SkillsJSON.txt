@@ -1,0 +1,1 @@
+[{"Name":"TestSkill","Restrictions":null,"SkillType":null,"BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":true,"ToolsExpendable":false,"FoRKs":null}]

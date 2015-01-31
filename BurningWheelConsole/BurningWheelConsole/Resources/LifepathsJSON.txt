@@ -1,0 +1,1 @@
+[{"Name":"TestLifepath","isBornLifepath":false,"Restrictions":null,"Resources":0,"Years":0,"MentalPhysical":0,"Setting":null,"Leads":["Outcast"],"SkillPoints":0,"TraitPoints":0,"Skills":null,"Traits":null}]
