@@ -1,0 +1,5 @@
+C classname #Starts a class
+F[F] type name [G][S] #creates a field of type 'type' with name 'name'; includes [G]=getter; [S]=setter [F]=final
+PUM returntype name #creates public method with name/return type
+PRM returntype name #creates private method with name/return type
+EC #end class
