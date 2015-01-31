@@ -34,7 +34,7 @@ function classparsetable.F(tokString)
 	if(addSet == nil) then addSet = false else addSet = true end
 
 	line = line..tokString[2].." "..tokString[3];
-	if(#tokString == 3 or (addSet and addGet)) then return {line..";"} end
+	if(#tokString == 3 or (not(addSet) and not(addGet))) then return {line..";"} end
 
 	line = line.." { "
 	if(addSet) then line = line.."set; " end
@@ -44,21 +44,22 @@ function classparsetable.F(tokString)
 	return {line};
 end
 
-function classparsetable.PUM(tokString)
-	assert(#tokString >= 3, "Tokens invalid for PUM")
-
+function classparsetable._genFunc(tokString, pubPriv)
 	signature = ""
 	for i=4,#tokString,1 do
 		signature = signature..tokString[i].." arg"..(i-3)
 	end
-
-	print(signature)
-
-	return {"public "..tokString[2].." "..tokString[3].."("..signature..")","{","}"}
+	
+	return {pubPriv.." "..tokString[2].." "..tokString[3].."("..signature..")","{","}"}
 end
 
-function classparsetable.PRM(tokString) 
-	print("WARNING: Unwritten (PRM)")
-	return {}
+function classparsetable.PU(tokString)
+	assert(#tokString >= 3, "Tokens invalid for PU")
+	return classparsetable._genFunc(tokString, "public")
+end
+
+function classparsetable.PR(tokString) 
+	assert(#tokString >= 3, "Tokens invalid for PR")
+	return classparsetable._genFunc(tokString, "private")
 end
 

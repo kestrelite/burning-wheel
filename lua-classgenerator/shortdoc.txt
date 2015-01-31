@@ -1,5 +1,5 @@
 C classname #Starts a class
 F type name [F][G][S] #creates a field of type 'type' with name 'name'; includes [F]=final [G]=getter [S]=setter (in this order)
-PUM returntype name #creates public method with name/return type
-PRM returntype name #creates private method with name/return type
+PU returntype name #creates public method with name/return type
+PR returntype name #creates private method with name/return type
 EC #end class

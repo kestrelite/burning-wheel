@@ -12,6 +12,10 @@ function filewriter.close()
 	assert(io.close());
 end
 
+function filewriter.isOpen() 
+	return filewriter.inuse
+end
+
 function filewriter.write_blankline()
 	assert(filewriter.inuse, "No file open")
 	io.write("\n");
@@ -20,5 +24,5 @@ end
 function filewriter.write_line(line)
 	assert(filewriter.inuse, "No file open")
 	assert(line ~= nil, "Line cannot be nil");
-	io.write(line);
+	io.write(line.."\n");
 end

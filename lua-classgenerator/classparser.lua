@@ -25,7 +25,7 @@ function classparser.parseToCSh(classData)
 
 	if(#classCode == 0) then return classCode; end --Only happens if classData is just a NSP 
 
-	classCode = stringtools.mergestringtable({"using System;","","using namespace "..classparser.namespace,"{"}, classCode)
+	classCode = stringtools.mergestringtable({"using System;","","namespace "..classparser.namespace,"{"}, classCode)
 	classCode[#classCode + 1] = "}"
 
 	assert(classMetadata.classname ~= nil, "Something went wrong assigning class name!")

@@ -6,7 +6,7 @@ F int Years GS
 F MPPoint MentalPhysical GS
 F LPSetting LPSetting GS
 
-PUM bool LeadsTo Lifepath
+PU bool LeadsTo(Lifepath)
 EC
 
 C Skill
