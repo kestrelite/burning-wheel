@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BurningWheelConsole
 {
     public class Lifepath
     {
         public string Name { set; get; }
+        public bool isBornLifepath { set; get; }
         public string Restrictions { set; get; }
         public int Resources { set; get; }
         public int Years { set; get; }
@@ -27,13 +29,12 @@ namespace BurningWheelConsole
                 if (s.Equals(lp2.Setting)) return true;
                 Console.Write(s + "; " + lp2.Setting);
             }
-             
             return false;
         }
 
         public Lifepath()
         {
-
+            
         }
     }
 }
