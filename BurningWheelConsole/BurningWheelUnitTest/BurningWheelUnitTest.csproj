@@ -50,8 +50,15 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="LifepathTest.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BurningWheelConsole\BurningWheelConsole.csproj">
+      <Project>{fa6b1f8a-d9a1-4e15-9bc8-c0d47d1592e1}</Project>
+      <Name>BurningWheelConsole</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

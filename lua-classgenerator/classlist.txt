@@ -1,16 +1,38 @@
 NSP BurningWheelConsole
 
 C Lifepath
+F string Name GS
+F string Restrictions GS #These can't reasonably be accounted for except by the player
 F int Resources GS
 F int Years GS
 F MPPoint MentalPhysical GS
-F LPSetting LPSetting GS
+F LPSetting Setting GS
+F LPLeads Leads GS
+
+F int SkillPoints GS
+F int TraitPoints GS
+F List<Skill> Skills GS
+F List<Trait> Traits GS
 
 PU bool LeadsTo(Lifepath)
 EC
 
 C Skill
+F string Name GS
+F string Restrictions GS #Same as above
+F string SkillType GS
+F RootStat BaseStat1 GS
+F RootStat BaseStat2 GS
+F List<String> Obstacles GS
+F bool ToolsNeeded GS
+F bool ToolsExpendable GS
+F List<Skill> FoRKs GS
 EC
 
 C Trait
+F string Name GS
+F string Restrictions GS
+F bool LPOnlyTrait GS
+F int Points GS
+F TraitType TraitType GS
 EC

@@ -16,8 +16,7 @@ function classparsetable.EC(tokString)
 end
 
 function classparsetable.F(tokString)
-	assert(#tokString >= 3, "Too little data to F")
-	assert(#tokString <= 4, "Too much data to F")
+	assert(#tokString == 3 or #tokString == 4, "Bad data to F: " .. #tokString .. " entries.")
 	if(#tokString == 4) then 
 		assert(not(string.match(tokString[4], "[^FGS]")), "Invalid token in F options")
 		assert(#tokString[4] < 4, "No extraneous tokens allowed in F")
@@ -28,8 +27,13 @@ function classparsetable.F(tokString)
 		line = line.."final "
 	end
 
-	addGet = string.match(tokString[4], "[G]");
-	addSet = string.match(tokString[4], "[S]");
+	if(#tokString == 4) then
+		addGet = string.match(tokString[4], "[G]");
+		addSet = string.match(tokString[4], "[S]");
+	else
+		addGet = false;
+		addSet = false;
+	end
 	if(addGet == nil) then addGet = false else addGet = true end
 	if(addSet == nil) then addSet = false else addSet = true end
 

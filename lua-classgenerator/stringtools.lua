@@ -23,7 +23,7 @@ end
 function stringtools.tokenize(string)
 	assert(string ~= nil, "Cannot tokenize nil string")
 	retTable = {}
-	for i in string.gmatch(string, "[a-zA-Z0-9]+") do
+	for i in string.gmatch(string, "[a-zA-Z0-9<>]+") do
 		retTable[#retTable + 1] = i;
 	end
 	return retTable;
