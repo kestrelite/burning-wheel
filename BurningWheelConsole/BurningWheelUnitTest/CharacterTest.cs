@@ -104,11 +104,11 @@ namespace BurningWheelUnitTest
             Assert.AreEqual(7, c.LPCalc_GeneralPoints());
         }
 
-        [TestMethod]
+        /*[TestMethod]
         public void CharacterCalcMP()
         {
             Assert.Inconclusive("No test for MP");
             //No stat point after second instance
-        }
+        }*/
     }
 }

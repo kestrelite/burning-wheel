@@ -129,6 +129,8 @@ namespace BurningWheelConsole
                 foreach (Lifepath lpTest in ProcessedLPs)
                     if (LifepathData.AreEquivalent(lp, lpTest)) duplicateCount++;
                 if (duplicateCount == 0) count += lp.TraitPoints;
+                //This ternary statement checks the existence of a second trait.
+                //If a second trait exists, then one less trait point is given the second time.
                 if (duplicateCount == 1) count += lp.TraitPoints - (lp.Traits.Count >= 2 ? 0 : 1);
                 ProcessedLPs.Add(lp);
             }

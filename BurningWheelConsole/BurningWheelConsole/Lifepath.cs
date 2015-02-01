@@ -26,10 +26,15 @@ namespace BurningWheelConsole
         {
             List<Lifepath> ret = new List<Lifepath>();
             foreach (Lifepath lp in LIFEPATH_AGGREGATE)
-            {
                 if (lp.Name.Equals(name)) ret.Add(lp);
-            }
+            return copyLifepathsList(ret);
+        }
 
+        public static List<Lifepath> getLifepathByRace(string race)
+        {
+            List<Lifepath> ret = new List<Lifepath>();
+            foreach (Lifepath lp in LIFEPATH_AGGREGATE)
+                if (lp.Setting.StartsWith(race)) ret.Add(lp);
             return copyLifepathsList(ret);
         }
 
@@ -44,11 +49,7 @@ namespace BurningWheelConsole
         {
             List<Lifepath> ret = new List<Lifepath>();
             foreach (Lifepath lp in LIFEPATH_AGGREGATE)
-            {
                 if (lp.isBornLifepath && lp.Setting.StartsWith(race)) ret.Add(lp);
-                Console.WriteLine(lp.Setting.StartsWith(race));
-            }
-
             return copyLifepathsList(ret);
         }
 
