@@ -56,6 +56,8 @@
   <ItemGroup>
     <Compile Include="LifepathTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SkillTest.cs" />
+    <Compile Include="TraitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BurningWheelConsole\BurningWheelConsole.csproj">

@@ -11,7 +11,7 @@ namespace BurningWheelConsole
     public class SkillAggregator
     {
         private static List<Skill> _SKILL_AGGREGATE;
-        public static List<Skill> SKILL_AGGREGATE
+        private static List<Skill> SKILL_AGGREGATE
         {
             get
             {
@@ -21,6 +21,15 @@ namespace BurningWheelConsole
         }
 
         public static int AggregateSkills() { return SKILL_AGGREGATE.Count; }
+
+        public static Skill getSkillByName(string name)
+        {
+            foreach (Skill s in SKILL_AGGREGATE)
+            {
+                if (s.Name.Equals(name)) return copySkill(s);
+            }
+            return null;
+        }
 
         private static Skill copySkillList(List<Skill> skill)
         {

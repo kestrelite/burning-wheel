@@ -33,6 +33,13 @@ namespace BurningWheelConsole
             return copyLifepathsList(ret);
         }
 
+        public static Lifepath getLifepathByStringNameSetting(string name, string setting)
+        {
+            foreach (Lifepath lp in LIFEPATH_AGGREGATE)
+                if (lp.Name.Equals(name) && lp.Setting.Equals(setting)) return copyLifepath(lp);
+            return null;
+        }
+
         public static List<Lifepath> getBornLifepaths(string race)
         {
             List<Lifepath> ret = new List<Lifepath>();
@@ -73,8 +80,8 @@ namespace BurningWheelConsole
         public int SkillPoints { set; get; }
         public int GeneralSkillPoints { set; get; }
         public int TraitPoints { set; get; }
-        public List<Skill> Skills { set; get; }
-        public List<Trait> Traits { set; get; }
+        public List<String> Skills { set; get; }
+        public List<String> Traits { set; get; }
 
         public bool LeadsTo(Lifepath lp2)
         {

@@ -1,8 +1,9 @@
 [{"Name":"Born Peasant","isBornLifepath":true,"Restrictions":"","ResPoints":3,"Y
 ears":8,"MentalPhysical":8,"Setting":"Human_Peasant","Leads":["Human_Servitude",
 "Human_Soldier","Human_Seafaring","Human_Religious"],"SkillPoints":0,"GeneralSki
-llPoints":3,"TraitPoints":0,"Skills":[],"Traits":[]},{"Name":"Boy","isBornLifepa
-th":false,"Restrictions":"Must be the second lifepath taken, and may only be tak
-en once.","ResPoints":8,"Years":4,"MentalPhysical":8,"Setting":"Human_Seafaring"
-,"Leads":["Human_City","Human_Servitude","Human_Soldier","Human_Outcast"],"Skill
-Points":4,"GeneralSkillPoints":0,"TraitPoints":1,"Skills":[],"Traits":[]}]
+llPoints":3,"TraitPoints":0,"Skills":[],"Traits":[]},{"Name":"Boy","isBornLifepat
+h":false,"Restrictions":"Must be the second lifepath taken, and may only be tak\r
+\nen once.","ResPoints":8,"Years":4,"MentalPhysical":8,"Setting":"Human_Seafaring
+","Leads":["Human_City","Human_Servitude","Human_Soldier","Human_Outcast"],"Skill
+Points":0,"GeneralSkillPoints":0,"TraitPoints":1,"Skills":["Ship-wise","Captain-w
+ise","Sailor-wise"],"Traits":[]}]
