@@ -88,6 +88,7 @@ namespace BurningWheelConsole
         public int TraitPoints { set; get; }
         public List<String> Skills { set; get; }
         public List<String> Traits { set; get; }
+        public List<String> Prerequisites { set; get; }
 
         public bool LeadsTo(Lifepath lp2)
         {

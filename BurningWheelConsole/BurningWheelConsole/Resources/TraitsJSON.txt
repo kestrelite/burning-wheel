@@ -1,2 +1,1 @@
-[{"Name":"Veneer of Obedience","Text":"","Restrictions":"","LPOnlyTrait":false,"Points":1,
-"Type":0}]
+[{"Name":"Veneer of Obedience","Text":"","Restrictions":"","LPOnlyTrait":false,"Points":1,"Type":0}]

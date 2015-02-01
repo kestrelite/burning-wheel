@@ -15,11 +15,6 @@ namespace BurningWheelConsole
         {
             //Todo: Fix Skill/Trait requirements for always-enabled
             //Todo: Add previous lifepath requirements to LP
-            Character c = new Character();
-            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
-            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
-            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
-            c.LPCalc_TraitPoints();
         }
     }
 }

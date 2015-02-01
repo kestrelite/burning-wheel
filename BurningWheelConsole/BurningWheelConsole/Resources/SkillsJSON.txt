@@ -1,7 +1,1 @@
-[{"Name":"Sailor-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,"
-BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"RollsOp
-enEnded":false,"FoRKs":[]},{"Name":"Ship-wise","Restrictions":"","SkillType":"Kn
-owledge","BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsEx
-pendable":false,"RollsOpenEnded":false,"FoRKs":[]},{"Name":"Captain-wise","Restr
-ictions":"","SkillType":"Knowledge","BaseStat1":0,"BaseStat2":9,"Obstacles":[],"
-ToolsNeeded":false,"ToolsExpendable":false,"RollsOpenEnded":false,"FoRKs":[]}]
+[{"Name":"Sailor-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"RollsOpenEnded":false,"FoRKs":[]},{"Name":"Ship-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"RollsOpenEnded":false,"FoRKs":[]},{"Name":"Captain-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"RollsOpenEnded":false,"FoRKs":[]}]
