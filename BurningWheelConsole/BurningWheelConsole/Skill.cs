@@ -54,6 +54,7 @@ namespace BurningWheelConsole
         public List<String> Obstacles { set; get; }
         public bool ToolsNeeded { set; get; }
         public bool ToolsExpendable { set; get; }
+        public bool RollsOpenEnded { set; get; }
         public List<Skill> FoRKs { set; get; }
     }
 }
