@@ -22,7 +22,7 @@ namespace BurningWheelConsole
 
         public static int AggregateLifepaths() { return LIFEPATH_AGGREGATE.Count(); }
 
-        public static List<Lifepath> getLifepathByStringName(string name)
+        public static List<Lifepath> getLifepathByName(string name)
         {
             List<Lifepath> ret = new List<Lifepath>();
             foreach (Lifepath lp in LIFEPATH_AGGREGATE)
@@ -33,14 +33,14 @@ namespace BurningWheelConsole
             return copyLifepathsList(ret);
         }
 
-        public static Lifepath getLifepathByStringNameSetting(string name, string setting)
+        public static Lifepath getLifepathByNameSetting(string name, string setting)
         {
             foreach (Lifepath lp in LIFEPATH_AGGREGATE)
                 if (lp.Name.Equals(name) && lp.Setting.Equals(setting)) return copyLifepath(lp);
             return null;
         }
 
-        public static List<Lifepath> getBornLifepaths(string race)
+        public static List<Lifepath> getBornLifepathList(string race)
         {
             List<Lifepath> ret = new List<Lifepath>();
             foreach (Lifepath lp in LIFEPATH_AGGREGATE)
@@ -50,6 +50,11 @@ namespace BurningWheelConsole
             }
 
             return copyLifepathsList(ret);
+        }
+
+        public static bool AreEquivalent(Lifepath lpA, Lifepath lpB)
+        {
+            return (lpA.Name.Equals(lpB.Name) && lpA.Setting.Equals(lpB.Setting));
         }
 
         private static List<Lifepath> copyLifepathsList(List<Lifepath> lpList)

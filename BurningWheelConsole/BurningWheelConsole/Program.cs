@@ -13,16 +13,17 @@ namespace BurningWheelConsole
     {
         static void Main(string[] args)
         {
-            Trait t = new Trait();
-            t.LPOnlyTrait = false;
-            t.Name = "Veneer of Obedience";
-            t.Points = 1;
-            t.Restrictions = "";
-            t.Type = TraitType.CHAR;
+            Character c = new Character();
+            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            c.LPCalc_TraitPoints();
 
-            List<Trait> list = new List<Trait>();
-            list.Add(t);
-            Console.WriteLine(JsonConvert.SerializeObject(list));
+            return;
+            Lifepath lp1 = LifepathData.getLifepathByName("Boy")[0];
+            Lifepath lp2 = LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring");
+            Console.WriteLine(lp1.Setting);
+            Console.WriteLine(lp2 == null ? "NULL" : "NOT NULL");
         }
     }
 }
