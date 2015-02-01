@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BurningWheelConsole.Properties;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,21 +8,35 @@ using System.Threading.Tasks;
 
 namespace BurningWheelConsole
 {
-    public class Skill
+    public class SkillAggregator
     {
         private static List<Skill> _SKILL_AGGREGATE;
         public static List<Skill> SKILL_AGGREGATE
         {
-            set
+            get
             {
-                if (SKILL_AGGREGATE_SET) throw new InvalidOperationException("Can't set skill aggregate twice!");
-                SKILL_AGGREGATE_SET = true;
-                Skill._SKILL_AGGREGATE = value;
+                return _SKILL_AGGREGATE
+                    ?? (_SKILL_AGGREGATE = JsonConvert.DeserializeObject<List<Skill>>(Resources.SkillsJSON));
             }
-            get { return Skill._SKILL_AGGREGATE; }
         }
-        private static bool SKILL_AGGREGATE_SET = false;
 
+        public static int AggregateSkills() { return SKILL_AGGREGATE.Count; }
+
+        private static Skill copySkillList(List<Skill> skill)
+        {
+            string JSON = JsonConvert.SerializeObject(skill);
+            return JsonConvert.DeserializeObject<Skill>(JSON);
+        }
+
+        private static Skill copySkill(Skill skill)
+        {
+            string JSON = JsonConvert.SerializeObject(skill);
+            return JsonConvert.DeserializeObject<Skill>(JSON);
+        }
+    }
+
+    public class Skill
+    {
         public string Name { set; get; }
         public string Restrictions { set; get; }
         public string SkillType { set; get; }

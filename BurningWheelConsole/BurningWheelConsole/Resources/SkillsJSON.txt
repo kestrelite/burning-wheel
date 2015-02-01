@@ -1,1 +1,7 @@
-[{"Name":"TestSkill","Restrictions":null,"SkillType":null,"BaseStat1":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":true,"ToolsExpendable":false,"FoRKs":null}]
+[{"Name":"Sailor-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,"
+BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"FoRKs":
+[]},{"Name":"Ship-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1":0,
+"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"FoRKs"
+:[]},{"Name":"Captain-wise","Restrictions":"","SkillType":"Knowledge","BaseStat1
+":0,"BaseStat2":9,"Obstacles":[],"ToolsNeeded":false,"ToolsExpendable":false,"Fo
+RKs":[]}]

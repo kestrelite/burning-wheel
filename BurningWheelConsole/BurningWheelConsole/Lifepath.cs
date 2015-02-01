@@ -4,37 +4,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using BurningWheelConsole.Properties;
 
 namespace BurningWheelConsole
 {
-    public class Lifepath
+    public class LifepathAggregator
     {
         private static List<Lifepath> _LIFEPATH_AGGREGATE;
-        public static List<Lifepath> LIFEPATH_AGGREGATE 
+        private static List<Lifepath> LIFEPATH_AGGREGATE
         {
-            set 
-            { 
-                if (LIFEPATH_AGGREGATE_SET) throw new InvalidOperationException("Can't set lifepath aggregate twice!");
-                LIFEPATH_AGGREGATE_SET = true;
-                Lifepath._LIFEPATH_AGGREGATE = value;
+            get
+            {
+                return _LIFEPATH_AGGREGATE
+                    ?? (_LIFEPATH_AGGREGATE = JsonConvert.DeserializeObject<List<Lifepath>>(Resources.LifepathsJSON));
             }
-            get { return Lifepath._LIFEPATH_AGGREGATE; } 
         }
-        private static bool LIFEPATH_AGGREGATE_SET = false;
 
+        public static int AggregateLifepaths() { return LIFEPATH_AGGREGATE.Count(); }
+
+        public static List<Lifepath> getLifepathByStringName(string name)
+        {
+            List<Lifepath> ret = new List<Lifepath>();
+            foreach (Lifepath lp in LIFEPATH_AGGREGATE)
+            {
+                if (lp.Name.Equals(name)) ret.Add(lp);
+            }
+
+            return copyLifepathsList(ret);
+        }
+
+        public static List<Lifepath> getBornLifepaths(string race)
+        {
+            List<Lifepath> ret = new List<Lifepath>();
+            foreach (Lifepath lp in LIFEPATH_AGGREGATE)
+            {
+                if (lp.isBornLifepath && lp.Setting.StartsWith(race)) ret.Add(lp);
+                Console.WriteLine(lp.Setting.StartsWith(race));
+            }
+
+            return copyLifepathsList(ret);
+        }
+
+        private static List<Lifepath> copyLifepathsList(List<Lifepath> lpList)
+        {
+            string JSON = JsonConvert.SerializeObject(lpList);
+            return JsonConvert.DeserializeObject<List<Lifepath>>(JSON);
+        }
+
+        private static Lifepath copyLifepath(Lifepath lp)
+        {
+            string serialized = JsonConvert.SerializeObject(lp);
+            return JsonConvert.DeserializeObject<Lifepath>(serialized);
+        }
+
+        private LifepathAggregator() { }
+    }
+
+    public class Lifepath
+    {
         public string Name { set; get; }
         public bool isBornLifepath { set; get; }
         public string Restrictions { set; get; }
-        public int Resources { set; get; }
+        public int ResPoints { set; get; }
         public int Years { set; get; }
         public MPPoint MentalPhysical { set; get; }
         public string Setting { set; get; }
         public List<string> Leads { set; get; }
         public int SkillPoints { set; get; }
+        public int GeneralSkillPoints { set; get; }
         public int TraitPoints { set; get; }
         public List<Skill> Skills { set; get; }
         public List<Trait> Traits { set; get; }
-        
+
         public bool LeadsTo(Lifepath lp2)
         {
             foreach (string s in Leads)
@@ -52,7 +93,7 @@ namespace BurningWheelConsole
 
         public Lifepath()
         {
-            
+
         }
     }
 }

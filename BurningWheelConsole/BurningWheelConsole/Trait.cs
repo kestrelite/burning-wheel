@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BurningWheelConsole.Properties;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,15 +13,14 @@ namespace BurningWheelConsole
         private static List<Trait> _TRAIT_AGGREGATE;
         public static List<Trait> TRAIT_AGGREGATE
         {
-            set
+            get
             {
-                if (TRAIT_AGGREGATE_SET) throw new InvalidOperationException("Can't set trait aggregate twice!");
-                TRAIT_AGGREGATE_SET = true;
-                Trait._TRAIT_AGGREGATE = value;
+                return _TRAIT_AGGREGATE
+                    ?? (_TRAIT_AGGREGATE = JsonConvert.DeserializeObject<List<Trait>>(Resources.TraitsJSON));
             }
-            get { return Trait._TRAIT_AGGREGATE; }
         }
-        private static bool TRAIT_AGGREGATE_SET = false;
+
+        public static int AggregateTraits() { return Trait.TRAIT_AGGREGATE.Count(); }
 
         public string Name { set; get; }
         public string Restrictions { set; get; }

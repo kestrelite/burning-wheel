@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BurningWheelConsole;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace BurningWheelUnitTest
 {
@@ -11,45 +9,38 @@ namespace BurningWheelUnitTest
     public class LifepathTest
     {
         [TestMethod]
-        public void LifepathLeadsCorrectly()
+        public void LifepathFetchByName()
         {
-            Lifepath lpA = new Lifepath();
-            lpA.Leads = new List<string>();
-            lpA.Leads.Add("Overlook");
-            lpA.Setting = "Village";
-
-            Lifepath lpB = new Lifepath();
-            lpB.Setting = "Overlook";
-
-            Lifepath lpC = new Lifepath();
-            lpC.Setting = "Overpass";
-
-            //The only thing it shouldn't lead to is itself
-            Lifepath lpD = new Lifepath();
-            lpD.Setting = "Village";
-
-            Assert.IsTrue(lpA.LeadsTo(lpB));
-            Assert.IsTrue(lpA.LeadsTo(lpC));
-            Assert.IsFalse(lpA.LeadsTo(lpD));
+            LifepathAggregator.AggregateLifepaths();
+            List<Lifepath> list = LifepathAggregator.getLifepathByStringName("Born Peasant");
+            Assert.IsNotNull(list);
+            Assert.AreEqual(list.Count, 1);
+            Assert.AreEqual(list[0].Name, "Born Peasant");
         }
 
         [TestMethod]
-        public void SerializeDeserializeTest()
+        public void BornLifepathsParseRace()
         {
-            Lifepath testLP = new Lifepath();
-            testLP.Leads = new List<string>();
-            testLP.Leads.Add("Outcast");
-            testLP.Name = "Born Peasant";
-            testLP.MentalPhysical = MPPoint.POS_MorP;
-            testLP.Years = 8;
+            LifepathAggregator.AggregateLifepaths();
+            List<Lifepath> list = LifepathAggregator.getBornLifepaths("Human");
+            Assert.IsTrue(list.Count > 0);
+            foreach (Lifepath lp in list)
+            {
+                Assert.IsTrue(lp.isBornLifepath);
+            }
 
-            string JSON = JsonConvert.SerializeObject(testLP);
-            Assert.IsTrue(JSON.Length > 0);
+            List<Lifepath> list2 = LifepathAggregator.getBornLifepaths("FfweEFJIJfjf");
+            Assert.IsTrue(list2.Count == 0);
+        }
 
-            Lifepath l2 = JsonConvert.DeserializeObject<Lifepath>(JSON);
-            StringAssert.Equals(testLP.Name, l2.Name);
-            Assert.AreEqual(testLP.Years, l2.Years);
-            Assert.AreEqual(testLP.MentalPhysical, l2.MentalPhysical);
+        [TestMethod]
+        public void LifepathIsCopied() //To ensure we're not modifying the base values stored in Aggregator
+        {
+            List<Lifepath> listA = LifepathAggregator.getLifepathByStringName("Born Peasant");
+            List<Lifepath> listB = LifepathAggregator.getLifepathByStringName("Born Peasant");
+            Assert.AreNotSame(listA, listB);
+            listA[0].ResPoints = 23848;
+            Assert.AreNotEqual(listA[0].ResPoints, listB[0].ResPoints);
         }
     }
 }
