@@ -33,6 +33,26 @@ namespace BurningWheelConsole
         //END LIFEPATH HANDLING
 
         //START LIFEPATH CALCULATIONS
+
+        /*
+         * Ahem. Let me clear my throat a minute and explain the godawful
+         * mess of code you are looking at. I will explain it with a quote
+         * from BWG, page 84.
+         * 
+         * Repeating Lifepaths: The Law of Diminishing Returns
+         * ---------------------------------------------------
+         * 
+         * You can repeat a lifepath as many times as you like. The second
+         * time a path is taken, time, resources, stat and skill points are
+         * earned as normal. The second skill and trait on each lifepath are
+         * required. If there is no second trait, subtract one point from
+         * the path. The third time a character walks a lifepath, he only
+         * receives half of the skill and resource points but no trait or 
+         * stat points. If a lifepath is taken a fourth time, the character
+         * only earns half of the resource points and nothing else aside
+         * from years.
+         *
+         */
         public int LPCalc_BornCount()
         {
             int count = 0;
