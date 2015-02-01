@@ -23,15 +23,6 @@ namespace BurningWheelConsole
             List<Trait> list = new List<Trait>();
             list.Add(t);
             Console.WriteLine(JsonConvert.SerializeObject(list));
-
-
-            //LifepathAggregator.AggregateLifepaths();
-            //Lifepath p = LifepathAggregator.getLifepathByStringName("Boy")[0];
-            //p.Skills.Add("Ship-wise");
-            //p.Skills.Add("Captain-wise");
-            //p.Skills.Add("Sailor-wise");
-
-            //Console.WriteLine(JsonConvert.SerializeObject(p));
         }
     }
 }

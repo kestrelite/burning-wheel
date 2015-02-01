@@ -47,6 +47,7 @@ namespace BurningWheelConsole
     public class Trait
     {
         public string Name { set; get; }
+        public string Text { set; get; }
         public string Restrictions { set; get; }
         public bool LPOnlyTrait { set; get; }
         public int Points { set; get; }
