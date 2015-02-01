@@ -13,9 +13,9 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void TraitIsNotReference()
         {
-            TraitAggregator.AggregateTraits();
-            Trait p = TraitAggregator.getTraitByName("Veneer of Obedience");
-            Trait q = TraitAggregator.getTraitByName("Veneer of Obedience");
+            TraitData.AggregateTraits();
+            Trait p = TraitData.getTraitByName("Veneer of Obedience");
+            Trait q = TraitData.getTraitByName("Veneer of Obedience");
             Assert.IsNotNull(p); Assert.IsNotNull(q);
             Assert.AreNotSame(p, q);
         }
@@ -23,10 +23,10 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void TraitFetchByName()
         {
-            TraitAggregator.AggregateTraits();
-            Trait p = TraitAggregator.getTraitByName("Veneer of Obedience");
+            TraitData.AggregateTraits();
+            Trait p = TraitData.getTraitByName("Veneer of Obedience");
             Assert.IsNotNull(p);
-            Trait q = TraitAggregator.getTraitByName("SuperHappyFunTrait");
+            Trait q = TraitData.getTraitByName("SuperHappyFunTrait");
             Assert.IsNull(q);
         }
 

@@ -8,7 +8,7 @@ using BurningWheelConsole.Properties;
 
 namespace BurningWheelConsole
 {
-    public class LifepathAggregator
+    public class LifepathData
     {
         private static List<Lifepath> _LIFEPATH_AGGREGATE;
         private static List<Lifepath> LIFEPATH_AGGREGATE
@@ -64,7 +64,7 @@ namespace BurningWheelConsole
             return JsonConvert.DeserializeObject<Lifepath>(serialized);
         }
 
-        private LifepathAggregator() { }
+        private LifepathData() { }
     }
 
     public class Lifepath

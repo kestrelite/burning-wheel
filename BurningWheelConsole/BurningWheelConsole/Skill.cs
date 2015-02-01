@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BurningWheelConsole
 {
-    public class SkillAggregator
+    public class SkillData
     {
         private static List<Skill> _SKILL_AGGREGATE;
         private static List<Skill> SKILL_AGGREGATE

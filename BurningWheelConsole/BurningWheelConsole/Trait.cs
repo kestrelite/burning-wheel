@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BurningWheelConsole
 {
-    public class TraitAggregator
+    public class TraitData
     {
         private static List<Trait> _TRAIT_AGGREGATE;
         private static List<Trait> TRAIT_AGGREGATE

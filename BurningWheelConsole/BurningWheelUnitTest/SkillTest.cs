@@ -13,9 +13,9 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void SkillIsNotReference()
         {
-            SkillAggregator.AggregateSkills();
-            Skill p = SkillAggregator.getSkillByName("Ship-wise");
-            Skill q = SkillAggregator.getSkillByName("Ship-wise");
+            SkillData.AggregateSkills();
+            Skill p = SkillData.getSkillByName("Ship-wise");
+            Skill q = SkillData.getSkillByName("Ship-wise");
             Assert.IsNotNull(p); Assert.IsNotNull(q);
             Assert.AreNotSame(p, q);
         }
@@ -23,10 +23,10 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void SkillFetchByName()
         {
-            SkillAggregator.AggregateSkills();
-            Skill p = SkillAggregator.getSkillByName("Ship-wise");
+            SkillData.AggregateSkills();
+            Skill p = SkillData.getSkillByName("Ship-wise");
             Assert.IsNotNull(p);
-            Skill q = SkillAggregator.getSkillByName("Schtroumpfed-wise");
+            Skill q = SkillData.getSkillByName("Schtroumpfed-wise");
             Assert.IsNull(q);
         }
 

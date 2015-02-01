@@ -13,13 +13,13 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void LifepathFetch()
         {
-            LifepathAggregator.AggregateLifepaths();
-            List<Lifepath> list = LifepathAggregator.getLifepathByStringName("Born Peasant");
+            LifepathData.AggregateLifepaths();
+            List<Lifepath> list = LifepathData.getLifepathByStringName("Born Peasant");
             Assert.IsNotNull(list);
             Assert.AreEqual(list.Count, 1);
             Assert.AreEqual(list[0].Name, "Born Peasant");
 
-            Lifepath lp = LifepathAggregator.getLifepathByStringNameSetting("Born Peasant", "Human_Peasant");
+            Lifepath lp = LifepathData.getLifepathByStringNameSetting("Born Peasant", "Human_Peasant");
             Assert.IsNotNull(lp);
             Assert.AreNotSame(list[0], lp);
         }
@@ -27,24 +27,24 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void BornLifepathsParseRace()
         {
-            LifepathAggregator.AggregateLifepaths();
-            List<Lifepath> list = LifepathAggregator.getBornLifepaths("Human");
+            LifepathData.AggregateLifepaths();
+            List<Lifepath> list = LifepathData.getBornLifepaths("Human");
             Assert.IsTrue(list.Count > 0);
             foreach (Lifepath lp in list)
             {
                 Assert.IsTrue(lp.isBornLifepath);
             }
 
-            List<Lifepath> list2 = LifepathAggregator.getBornLifepaths("FfweEFJIJfjf");
+            List<Lifepath> list2 = LifepathData.getBornLifepaths("FfweEFJIJfjf");
             Assert.IsTrue(list2.Count == 0);
         }
 
         [TestMethod]
         public void LifepathIsNotReference() //To ensure we're not modifying the base values stored in Aggregator
         {
-            LifepathAggregator.AggregateLifepaths();
-            List<Lifepath> listA = LifepathAggregator.getLifepathByStringName("Born Peasant");
-            List<Lifepath> listB = LifepathAggregator.getLifepathByStringName("Born Peasant");
+            LifepathData.AggregateLifepaths();
+            List<Lifepath> listA = LifepathData.getLifepathByStringName("Born Peasant");
+            List<Lifepath> listB = LifepathData.getLifepathByStringName("Born Peasant");
             Assert.AreNotSame(listA, listB);
             listA[0].ResPoints = 23848;
             Assert.AreNotEqual(listA[0].ResPoints, listB[0].ResPoints);

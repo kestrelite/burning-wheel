@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.cs" />
+    <Compile Include="CharacterBurner.cs" />
     <Compile Include="EnumData.cs" />
     <Compile Include="Lifepath.cs" />
     <Compile Include="Program.cs" />
