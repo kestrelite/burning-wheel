@@ -13,7 +13,7 @@ namespace BurningWheelConsole
     {
         static void Main(string[] args)
         {
-            //Todo: Fix Skill/Trait requirements for always-enabled
+            //Todo: Fix Skill/Trait requirements for already-taken
             //Todo: Add checks for non-existent fields in LP, Skill, Trait
             //Todo: Move LPCalc to its own static class
         }
