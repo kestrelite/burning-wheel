@@ -8,15 +8,14 @@ namespace BurningWheelConsole
 {
     public enum TraitType
     {
-        CHAR, DT, CO
+        CHARACTER, DIE, CALLON
     }
 
     public enum RootStat
     {
-        PERC, WILL,
-        AGIL, FORT, SPD, STR,
-        HATE, GREED, GRIEF,
-        NONE
+        PERCEPTION, WILL,
+        AGILITY, FORTE, SPEED, STRENGTH,
+        EMOTIONAL
     }
 
     public enum MPPoint
