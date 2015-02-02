@@ -14,7 +14,6 @@ namespace BurningWheelConsole
         static void Main(string[] args)
         {
             //Todo: Fix Skill/Trait requirements for always-enabled
-            //Todo: Add previous lifepath requirements to LP
         }
     }
 }
