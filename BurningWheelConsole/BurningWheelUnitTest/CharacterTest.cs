@@ -10,9 +10,8 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void CharacterReceivesLP()
         {
-            LifepathData.AggregateLifepaths();
             Character c = new Character();
-            Lifepath BornPeasant = LifepathData.getLifepathByNameSetting("Born Peasant", "Human_Peasant");
+            Lifepath BornPeasant = LifepathIndex.getLifepathByNameSetting("Born Peasant", "Human_Peasant");
             Assert.IsNotNull(BornPeasant);
 
             c.AddLifepath(BornPeasant);
@@ -25,7 +24,6 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void CharacterCalcsLP_NoDuplicates()
         {
-            LifepathData.AggregateLifepaths();
             Character c = new Character();
             c.AddLifepath(LifepathData.getLifepathByNameSetting("Born Peasant", "Human_Peasant"));
             Assert.AreEqual(c.LPCalc_CountLeads(), 0);
@@ -61,7 +59,6 @@ namespace BurningWheelUnitTest
         [TestMethod]
         public void CharacterCalcsLP_WithDuplicates()
         {
-            LifepathData.AggregateLifepaths();
             Character c = new Character();
 
             c.AddLifepath(LifepathData.getLifepathByNameSetting("Boy", "Human_Seafaring"));
