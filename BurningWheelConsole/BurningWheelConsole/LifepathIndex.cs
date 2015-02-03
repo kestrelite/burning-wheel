@@ -15,8 +15,23 @@ namespace BurningWheelConsole
         {
             get
             {
-                return _LIFEPATH_AGGREGATE
-                    ?? (_LIFEPATH_AGGREGATE = JsonConvert.DeserializeObject<List<Lifepath>>(Resources.LifepathsJSON));
+                if (_LIFEPATH_AGGREGATE == null) { 
+                    _LIFEPATH_AGGREGATE = JsonConvert.DeserializeObject<List<Lifepath>>(Resources.LifepathsJSON);
+
+                    foreach (Lifepath lp in _LIFEPATH_AGGREGATE)
+                    {
+                        NullReferenceException e = new NullReferenceException("Null field in Lifepath " + lp.Name);
+                        if (lp.Leads == null) throw e;
+                        if (lp.Name == null) throw e;
+                        if (lp.Prerequisites == null) throw e;
+                        if (lp.Restrictions == null) throw e;
+                        if (lp.Setting == null) throw e;
+                        if (lp.Skills == null) throw e;
+                        if (lp.Traits == null) throw e;
+                    }
+                }
+
+                return _LIFEPATH_AGGREGATE;
             }
         }
 

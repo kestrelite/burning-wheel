@@ -15,8 +15,21 @@ namespace BurningWheelConsole
         {
             get
             {
-                return _TRAIT_AGGREGATE
-                    ?? (_TRAIT_AGGREGATE = JsonConvert.DeserializeObject<List<Trait>>(Resources.TraitsJSON));
+                if (_TRAIT_AGGREGATE == null)
+                {
+                    _TRAIT_AGGREGATE = JsonConvert.DeserializeObject<List<Trait>>(Resources.TraitsJSON);
+
+                    foreach (Trait t in _TRAIT_AGGREGATE)
+                    {
+                        NullReferenceException e = new NullReferenceException("Null field in Trait " + t.Name);
+
+                        if (t.Name == null) throw e;
+                        if (t.Restrictions == null) throw e;
+                        if (t.Text == null) throw e;
+                    }
+                }
+
+                return _TRAIT_AGGREGATE;
             }
         }
 

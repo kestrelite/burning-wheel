@@ -13,10 +13,9 @@ namespace BurningWheelConsole
     {
         static void Main(string[] args)
         {
-            //Todo: Fix Skill/Trait requirements for already-taken
-            //Todo: Add checks for non-existent fields in LP, Skill, Trait
-            //Todo: Unit test for no duplicate required traits
-            //Todo: Add data for no duplicate required traits unit test
+            TraitIndex.getTraitByName("Veneer of Obedience");
+            SkillIndex.getSkillByName("Ship-wise");
+            LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring");
         }
     }
 }

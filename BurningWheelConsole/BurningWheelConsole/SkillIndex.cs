@@ -15,8 +15,23 @@ namespace BurningWheelConsole
         {
             get
             {
-                return _SKILL_AGGREGATE
-                    ?? (_SKILL_AGGREGATE = JsonConvert.DeserializeObject<List<Skill>>(Resources.SkillsJSON));
+                if (_SKILL_AGGREGATE == null)
+                {
+                    _SKILL_AGGREGATE = JsonConvert.DeserializeObject<List<Skill>>(Resources.SkillsJSON);
+
+                    foreach (Skill s in _SKILL_AGGREGATE)
+                    {
+                        NullReferenceException e = new NullReferenceException("Null field in Skill " + s.Name);
+
+                        if (s.FoRKs == null) throw e;
+                        if (s.Name == null) throw e;
+                        if (s.Obstacles == null) throw e;
+                        if (s.Restrictions == null) throw e;
+                        if (s.SkillType == null) throw e;
+                    }
+                }
+
+                return _SKILL_AGGREGATE;
             }
         }
 
