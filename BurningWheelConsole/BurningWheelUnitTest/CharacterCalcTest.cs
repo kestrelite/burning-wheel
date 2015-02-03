@@ -1,11 +1,12 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using BurningWheelConsole;
+using System.Collections.Generic;
 
 namespace BurningWheelUnitTest
 {
     [TestClass]
-    public class CharacterTest
+    public class CharacterCalcTest
     {
         [TestMethod]
         public void CharacterReceivesLP()
@@ -76,21 +77,23 @@ namespace BurningWheelUnitTest
 
             c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
             //Assertions for three the same
-            Assert.AreEqual(2, CharacterCalc.LifepathRequiredTraits(c).Count);
-            Assert.AreEqual(2, CharacterCalc.LifepathRequiredSkills(c).Count);
+            Assert.AreEqual(3, CharacterCalc.LifepathRequiredTraits(c).Count);
+            Assert.AreEqual("Sprinter", CharacterCalc.LifepathRequiredTraits(c)[2]);
+            Assert.AreEqual(3, CharacterCalc.LifepathRequiredSkills(c).Count);
+            Assert.AreEqual("Captain-wise", CharacterCalc.LifepathRequiredSkills(c)[2]);
             Assert.AreEqual(10, CharacterCalc.LifepathSkillPoints(c));
             Assert.AreEqual(2, CharacterCalc.LifepathTraitPoints(c));
             Assert.AreEqual(20, CharacterCalc.LifepathResourcePoints(c));
 
             c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
             //Assertions for four the same
-            Assert.AreEqual(2, CharacterCalc.LifepathRequiredTraits(c).Count);
-            Assert.AreEqual(2, CharacterCalc.LifepathRequiredSkills(c).Count);
+            Assert.AreEqual(3, CharacterCalc.LifepathRequiredTraits(c).Count);
+            Assert.AreEqual(3, CharacterCalc.LifepathRequiredSkills(c).Count);
             Assert.AreEqual(10, CharacterCalc.LifepathSkillPoints(c));
             Assert.AreEqual(2, CharacterCalc.LifepathTraitPoints(c));
             Assert.AreEqual(24, CharacterCalc.LifepathResourcePoints(c));
 
-            //Testing for second trait and general SPs
+            //Testing for second trait exception and general SPs
             c = new Character();
             c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Born Peasant", "Human_Peasant"));
             c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Born Peasant", "Human_Peasant"));
@@ -107,5 +110,47 @@ namespace BurningWheelUnitTest
             Assert.Inconclusive("No test for MP");
             //No stat point after second instance
         }*/
+
+        [TestMethod]
+        public void NoDuplicateSkillRequirements()
+        {
+            Character c = new Character();
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            Assert.AreEqual(2, CharacterCalc.LifepathRequiredSkills(c).Count);
+
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Pilot", "Human_Seafaring"));
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Pilot", "Human_Seafaring"));
+            Assert.AreEqual(4, CharacterCalc.LifepathRequiredSkills(c).Count);
+
+            List<string> requiredSkills = CharacterCalc.LifepathRequiredSkills(c);
+            for (int i = 0; i < requiredSkills.Count; i++)
+                for (int j = 0; j < requiredSkills.Count; j++)
+                    if (i != j) Assert.AreNotEqual(requiredSkills[i], requiredSkills[j]);
+
+            Assert.AreEqual(requiredSkills[0], "Sailor-wise");
+            Assert.AreEqual(requiredSkills[1], "Ship-wise");
+            Assert.AreEqual(requiredSkills[2], "Pilot");
+            Assert.AreEqual(requiredSkills[3], "Observation"); 
+
+        }
+
+        [TestMethod]
+        public void NoDuplicateTraitRequirements()
+        {
+            Character c = new Character();
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring"));
+            Assert.AreEqual(2, CharacterCalc.LifepathRequiredTraits(c).Count);
+
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Pilot", "Human_Seafaring"));
+            c.AddLifepath(LifepathIndex.getLifepathByNameSetting("Pilot", "Human_Seafaring"));
+            Assert.AreEqual(4, CharacterCalc.LifepathRequiredTraits(c).Count);
+
+            List<string> requiredTraits = CharacterCalc.LifepathRequiredTraits(c);
+            for (int i = 0; i < requiredTraits.Count; i++)
+                for (int j = 0; j < requiredTraits.Count; j++)
+                    if (i != j) Assert.AreNotEqual(requiredTraits[i], requiredTraits[j]);
+        }
     }
 }

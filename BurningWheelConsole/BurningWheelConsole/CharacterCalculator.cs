@@ -107,7 +107,7 @@ namespace BurningWheelConsole
                 if (duplicateCount == 0) count += lp.TraitPoints;
                 //This ternary statement checks the existence of a second trait.
                 //If a second trait exists, then one less trait point is given the second time.
-                if (duplicateCount == 1) count += lp.TraitPoints - (lp.Traits.Count >= 2 ? 0 : 1);
+                if (duplicateCount == 1) count += lp.TraitPoints - (lp.Traits.Count >= duplicateCount + 1 ? 0 : 1);
                 ProcessedLPs.Add(lp);
             }
             return count;
@@ -137,12 +137,11 @@ namespace BurningWheelConsole
 
             foreach (Lifepath lp in character.LifepathList)
             {
-                int duplicateCount = 0;
-                foreach (Lifepath lpTest in ProcessedLPs)
-                    if (LifepathIndex.AreEquivalent(lp, lpTest)) duplicateCount++;
-                //Only requires up to the second trait
-                if (lp.Skills.Count > duplicateCount && duplicateCount < 2)
-                    RequiredSkills.Add(lp.Skills[duplicateCount]);
+                List<string> skills = lp.Skills;
+                foreach (string s1 in skills) {
+                    if (RequiredSkills.Contains(s1)) continue;
+                    RequiredSkills.Add(s1); break;
+                }
                 ProcessedLPs.Add(lp);
             }
 
@@ -156,12 +155,12 @@ namespace BurningWheelConsole
 
             foreach (Lifepath lp in character.LifepathList)
             {
-                int duplicateCount = 0;
-                foreach (Lifepath lpTest in ProcessedLPs)
-                    if (LifepathIndex.AreEquivalent(lp, lpTest)) duplicateCount++;
-                //Only requires up to the second trait
-                if (lp.Traits.Count > duplicateCount && duplicateCount < 2)
-                    RequiredTraits.Add(lp.Traits[duplicateCount]);
+                List<string> traits = lp.Traits;
+                foreach (string s1 in traits)
+                {
+                    if (RequiredTraits.Contains(s1)) continue;
+                    RequiredTraits.Add(s1); break;
+                }
                 ProcessedLPs.Add(lp);
             }
 

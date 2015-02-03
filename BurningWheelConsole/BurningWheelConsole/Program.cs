@@ -15,7 +15,8 @@ namespace BurningWheelConsole
         {
             //Todo: Fix Skill/Trait requirements for already-taken
             //Todo: Add checks for non-existent fields in LP, Skill, Trait
-            //Todo: Move LPCalc to its own static class
+            //Todo: Unit test for no duplicate required traits
+            //Todo: Add data for no duplicate required traits unit test
         }
     }
 }
