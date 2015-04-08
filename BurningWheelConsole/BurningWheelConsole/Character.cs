@@ -13,6 +13,8 @@ namespace BurningWheelConsole
         public string Race { set; get; }
         public int Age { set; get; }
 
+        public StatRecorder StatRecord { set; get; }
+
         private List<String> _BeliefsList = new List<String>();
         public List<String> BeliefsList
         {

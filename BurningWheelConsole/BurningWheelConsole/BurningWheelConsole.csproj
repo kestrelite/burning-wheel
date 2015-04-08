@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Skill.cs" />
     <Compile Include="SkillIndex.cs" />
+    <Compile Include="StatRecorder.cs" />
     <Compile Include="Trait.cs" />
     <Compile Include="TraitIndex.cs" />
   </ItemGroup>
