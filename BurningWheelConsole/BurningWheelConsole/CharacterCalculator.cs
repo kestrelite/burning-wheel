@@ -179,10 +179,10 @@ namespace BurningWheelConsole
                     if (LifepathIndex.AreEquivalent(lp, lpTest)) duplicateCount++;
                 if (duplicateCount <= 1) //No stat points for >2 walks
                 {
-                    if (lp.MentalPhysical.Equals(MPPoint.NEG_M)) count -= 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.NEG_MP)) count -= 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.POS_M)) count += 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.POS_MP)) count += 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Neg_M)) count -= 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Neg_MP)) count -= 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Pos_M)) count += 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Pos_MP)) count += 1;
                 }
 
                 ProcessedLPs.Add(lp);
@@ -203,10 +203,10 @@ namespace BurningWheelConsole
                     if (LifepathIndex.AreEquivalent(lp, lpTest)) duplicateCount++;
                 if (duplicateCount <= 1) //No stat points for >2 walks
                 {
-                    if (lp.MentalPhysical.Equals(MPPoint.NEG_P)) count -= 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.NEG_MP)) count -= 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.POS_P)) count += 1;
-                    if (lp.MentalPhysical.Equals(MPPoint.POS_MP)) count += 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Neg_P)) count -= 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Neg_MP)) count -= 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Pos_P)) count += 1;
+                    if (lp.MentalPhysical.Equals(MPPoint.Pos_MP)) count += 1;
                 }
 
                 ProcessedLPs.Add(lp);
@@ -220,9 +220,9 @@ namespace BurningWheelConsole
             List<Lifepath> inconclusiveLP = new List<Lifepath>();
             foreach (Lifepath lp in character.LifepathList)
             {
-                if (lp.MentalPhysical.Equals(MPPoint.NEG_MorP))
+                if (lp.MentalPhysical.Equals(MPPoint.Neg_MorP))
                     inconclusiveLP.Add(lp);
-                if (lp.MentalPhysical.Equals(MPPoint.POS_MorP))
+                if (lp.MentalPhysical.Equals(MPPoint.Pos_MorP))
                     inconclusiveLP.Add(lp);
             }
             return inconclusiveLP;

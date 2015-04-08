@@ -8,20 +8,20 @@ namespace BurningWheelConsole
 {
     public enum TraitType
     {
-        CHARACTER, DIE, CALLON
+        Character, Die, Callon
     }
 
     public enum RootStat
     {
-        PERCEPTION, WILL,
-        AGILITY, FORTE, SPEED, STRENGTH,
-        EMOTIONAL
+        Perception, Will,
+        Agility, Forte, Speed, Strength,
+        Emotional
     }
 
     public enum MPPoint
     {
-        POS_M, POS_P, POS_MP, POS_MorP,
-        NEG_M, NEG_P, NEG_MP, NEG_MorP,
-        NONE
+        Pos_M, Pos_P, Pos_MP, Pos_MorP,
+        Neg_M, Neg_P, Neg_MP, Neg_MorP,
+        None
     }
 }

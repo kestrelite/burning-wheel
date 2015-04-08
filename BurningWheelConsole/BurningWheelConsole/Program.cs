@@ -13,6 +13,7 @@ namespace BurningWheelConsole
     {
         static void Main(string[] args)
         {
+            //Todo: change the enum for MP to [Flags]
             TraitIndex.getTraitByName("Veneer of Obedience");
             SkillIndex.getSkillByName("Ship-wise");
             LifepathIndex.getLifepathByNameSetting("Boy", "Human_Seafaring");
